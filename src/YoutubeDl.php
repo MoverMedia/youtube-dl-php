@@ -125,8 +125,8 @@ class YoutubeDl
                 $currentVideo['id'] = $match[2];
             } elseif (str_starts_with($buffer, 'ERROR:')) {
                 $currentVideo['error'] = trim(substr($buffer, 6));
-            } elseif (preg_match('/Writing video description metadata as JSON to:\s(.+)/', $buffer, $match) === 1) {
-                $currentVideo['metadataFile'] = $match[1];
+            } elseif (preg_match('/Writing video (description )?metadata as JSON to:\s(.+)/', $buffer, $match) === 1) {
+                $currentVideo['metadataFile'] = $match[2];
             } elseif (preg_match('/\[ffmpeg] Merging formats into "(.+)"/', $buffer, $match) === 1) {
                 $currentVideo['fileName'] = $match[1];
             } elseif (preg_match('/\[ffmpeg] Destination: (.+)/', $buffer, $match) === 1) {
